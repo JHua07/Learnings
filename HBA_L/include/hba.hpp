@@ -244,7 +244,7 @@ public:
     理解：hessian是怎么来的
     首先，定义Hess是一个60*60的矩阵，分别存放了窗口内10个点的位姿的Hessian矩阵的上三角部分元素
     1. 在hba.cpp中，通过damping_iter()计算每一个线程的每个窗口的Hessian，
-    1. 通过ba.hpp中的divide_thread()函数，将任务分配给每个线程，调用acc_evaluate2()计算每一个体素内的(我的理解是一个体素对应一个窗口)Hessian矩阵，
+    1. 通过ba.hpp中的divide_thread()函数，将任务分配给每个线程，调用acc_evaluate2()计算每一个体素内的Hessian矩阵，
         就是60*60的,然后所有体素的残差，雅各布矩阵和Hessian矩阵累加得到总的Hessian矩阵，雅各布矩阵和残差。（因为Hessian具有线性累加性质，因为 Hessian 矩阵本质上描述的是二阶导数的累积特性）
     2. 
     */
